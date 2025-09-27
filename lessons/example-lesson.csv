@@ -1,0 +1,3 @@
+type, target, question, answer1, answer2, answer3, answer4, correct answer
+multiple-choice, apple, Translate "apple" to French, pomme, banane, orange, raisin, 1
+input, I like dogs, Translate "I like dogs" to French, J'aime les chiens, , , , 1

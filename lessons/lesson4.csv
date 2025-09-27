@@ -1,0 +1,12 @@
+type,target,question,answer1,answer2,answer3,answer4,correct answer
+multiple-choice,school,Translate "School" to French,École,Hôpital,Magasin,Parc,1
+multiple-choice,hospital,Translate "Hospital" to French,Hôpital,École,Magasin,Parc,1
+input,Where is the park?,Translate "Where is the park?" to French,Où est le parc?,,,,1
+input,I am going to the store,Translate "I am going to the store" to French,Je vais au magasin,,,,1
+multiple-choice,library,Translate "Library" to French,Bibliothèque,Église,Magasin,Parc,1
+multiple-choice,church,Translate "Church" to French,Église,Bibliothèque,Magasin,Parc,1
+input,Turn left,Translate "Turn left" to French,Tournez à gauche,,,,1
+input,Turn right,Translate "Turn right" to French,Tournez à droite,,,,1
+multiple-choice,park,Translate "Park" to French,Parc,Magasin,Hôpital,École,1
+multiple-choice,store,Translate "Store" to French,Magasin,Parc,École,Hôpital,1
+input,The museum is far,Translate "The museum is far" to French,Le musée est loin,,,,1

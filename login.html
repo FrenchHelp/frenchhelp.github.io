@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login | French Help For School</title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="assets/css/index.css">
+  <link rel="stylesheet" href="assets/css/games.css">
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicons/favicon-16x16.png">
+  <link rel="manifest" href="assets/images/favicons/site.webmanifest">
+
+  <style>
+    .login-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 80vh;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .login-box {
+      padding: 30px;
+      border-radius: 12px;
+      background: #fff;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      max-width: 300px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .login-box h2 {
+      margin-bottom: 15px;
+    }
+
+    .login-box input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      font-size: 16px;
+    }
+
+    .login-box button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      background: #007bff;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .login-box button:hover {
+      background: #0056b3;
+    }
+
+    .error {
+      color: red;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="content">
+    <div id="nav-placeholder"></div>
+
+    <div class="login-container">
+      <div class="login-box">
+        <h2>Login</h2>
+        <input type="password" id="password-input" placeholder="Enter Password">
+        <button id="login-btn">Login</button>
+        <div id="error-msg" class="error" style="display:none;">Incorrect password. Try again.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="assets/js/jquery-3.6.0.min.js"></script>
+  <script src="assets/js/script.js"></script>
+
+  <script>
+    const correctPassword = "Frenchp3PdFBQHSW7jDhGvWlzKDEUZjQq0uIL3"; // 🔑 set your password here
+    const token = "Nf9qNFv9wLTHdvWrvgI0Sb89Tyysbj6r";
+
+    document.getElementById("login-btn").addEventListener("click", () => {
+      const input = document.getElementById("password-input").value;
+
+      if (input === correctPassword) {
+        localStorage.setItem("french_logged_in", token);
+        window.location.href = "index.html"; // redirect after login
+      } else {
+        document.getElementById("error-msg").style.display = "block";
+      }
+    });
+
+    // Optional: allow pressing Enter to submit
+    document.getElementById("password-input").addEventListener("keypress", (e) => {
+      if (e.key === "Enter") {
+        document.getElementById("login-btn").click();
+      }
+    });
+  </script>
+</body>
+</html>

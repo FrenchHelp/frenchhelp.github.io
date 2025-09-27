@@ -1,0 +1,12 @@
+type,target,question,answer1,answer2,answer3,answer4,correct answer
+multiple-choice,mother,Translate "Mother" to French,Mère,Père,Frère,Sœur,1
+multiple-choice,father,Translate "Father" to French,Père,Mère,Frère,Sœur,1
+input,my sister,Translate "My sister" to French,Ma sœur,,,,1
+input,my brother,Translate "My brother" to French,Mon frère,,,,1
+multiple-choice,grandmother,Translate "Grandmother" to French,Grand-mère,Grand-père,Mère,Père,1
+multiple-choice,grandfather,Translate "Grandfather" to French,Grand-père,Grand-mère,Père,Mère,1
+input,I have a son,Translate "I have a son" to French,J'ai un fils,,,,1
+input,I have a daughter,Translate "I have a daughter" to French,J'ai une fille,,,,1
+multiple-choice,boy,Translate "Boy" to French,Garçon,Fille,Homme,Femme,1
+multiple-choice,girl,Translate "Girl" to French,Fille,Garçon,Femme,Homme,1
+input,they are parents,Translate "They are parents" to French,Ils sont parents,,,,1

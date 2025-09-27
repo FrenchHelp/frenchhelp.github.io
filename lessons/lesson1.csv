@@ -1,0 +1,12 @@
+type,target,question,answer1,answer2,answer3,answer4,correct answer
+multiple-choice,hello,Translate "Hello" to French,Bonjour,Salut,Au revoir,Merci,1
+multiple-choice,goodbye,Translate "Goodbye" to French,Salut,Au revoir,Bonjour,Merci,2
+input,thank you,Translate "Thank you" to French,Merci,,,,1
+multiple-choice,red,Translate "Red" to French,Rouge,Vert,Bleu,Jaune,1
+multiple-choice,blue,Translate "Blue" to French,Bleu,Blanc,Noir,Rouge,1
+input,I am happy,Translate "I am happy" to French,Je suis heureux,,,,1
+multiple-choice,one,Translate "One" to French,Un,Deux,Trois,Quatre,1
+multiple-choice,five,Translate "Five" to French,Cinq,Quatre,Deux,Trois,1
+input,good morning,Translate "Good morning" to French,Bonjour,,,,1
+input,how are you?,Translate "How are you?" to French,Comment ça va?,,,,1
+multiple-choice,green,Translate "Green" to French,Jaune,Vert,Rouge,Bleu,2

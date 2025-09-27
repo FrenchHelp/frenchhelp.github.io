@@ -1,0 +1,101 @@
+/* === Base Reset === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+/* === Body Styling === */
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  line-height: 1.6;
+  background: #f9f9f9;
+  color: #333;
+  background: linear-gradient(90deg, rgba(0, 29, 217, 1) 0%, rgba(0, 55, 122, 1) 100%);
+}
+
+/* === Main Content === */
+.main {
+  text-align: center;
+}
+
+.title {
+  color: white;
+  padding: 30px;
+}
+
+.title h1,
+.title h2 {
+  text-shadow: #333 2px 2px 4px;
+}
+
+.title h1 {
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.title h2 {
+  font-size: 25px;
+  margin-bottom: -10px;
+  font-weight: bold;
+}
+
+.title button {
+  margin-top: 20px;
+  box-shadow: #333 2px 2px 4px;
+  font-weight: 900;
+}
+
+.call-to-action {
+  background: linear-gradient(90deg, rgba(0, 29, 217, 1) 0%, rgba(0, 55, 122, 1) 100%);
+  color: white;
+  padding: 20px;
+}
+
+.testimonials {
+  color: white;
+  padding: 20px;
+}
+
+/* === Buttons === */
+button,
+.btn {
+  border: none;
+  padding: 15px 30px;
+  border-radius: 15px;
+  transition: transform 0.3s ease-in-out;
+}
+
+button:hover,
+.btn:hover {
+  transform: scale(1.1);
+}
+
+/* === Footer === */
+#footer-placeholder {
+  background: #111;
+  color: white;
+  padding: 15px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/* === Responsive Adjustments === */
+@media (max-width: 768px) {
+  .nav {
+    flex-wrap: wrap;
+    height: auto;
+    padding: 10px;
+  }
+
+  .nav a {
+    padding: 10px;
+    display: block;
+  }
+
+  .main {
+    margin: 20px;
+    padding: 15px;
+  }
+}

@@ -1,0 +1,13 @@
+type,target,question,answer1,answer2,answer3,answer4,correct answer
+input,I eat bread,Translate "I eat bread" to French,Je mange du pain,,,,1
+input,I drink water,Translate "I drink water" to French,Je bois de l'eau,,,,1
+multiple-choice,I am tired,Translate "I am tired" to French,Je suis fatigué,Je suis content,Je suis heureux,Je suis triste,1
+multiple-choice,He is happy,Translate "He is happy" to French,Il est heureux,Il est triste,Il est fatigué,Il est malade,1
+input,We are friends,Translate "We are friends" to French,Nous sommes amis,,,,1
+input,She likes apples,Translate "She likes apples" to French,Elle aime les pommes,,,,1
+multiple-choice,They go to school,Translate "They go to school" to French,Ils vont à l'école,Ils vont au parc,Nous allons à l'école,Je vais à l'école,1
+input,I have a question,Translate "I have a question" to French,J'ai une question,,,,1
+multiple-choice,He is running,Translate "He is running" to French,Il court,Il mange,Il dort,Il écrit,1
+input,We are learning French,Translate "We are learning French" to French,Nous apprenons le français,,,,1
+multiple-choice,She reads a book,Translate "She reads a book" to French,Elle lit un livre,Elle mange une pomme,Elle dort,Elle écrit,1
+input,I want to sleep,Translate "I want to sleep" to French,Je veux dormir,,,,1

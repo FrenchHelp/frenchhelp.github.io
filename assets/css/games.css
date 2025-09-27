@@ -1,0 +1,93 @@
+
+.main {
+  max-width: 60%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+#search-bar {
+  background-color: white;
+  padding: 10px;
+  border-radius: 15px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+#search-bar input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+input:focus, select:focus {
+  outline: none;
+}
+
+#search-bar select {
+  margin-left: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.game-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.game-card {
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.5s ease;
+}
+
+.game-card:hover {
+  transform: scale(1.05);
+}
+
+.game-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: filter 0.5s ease;
+
+}
+
+.game-card img:hover {
+  filter: brightness(80%);
+}
+
+.game-overlay {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+  display: flex;
+  justify-content: space-between;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+
+}
+
+.game-card:hover .game-overlay {
+  opacity: 1;
+}
+
+.game-overlay img {
+  width: 32px;
+  height: 32px;
+  padding: 6px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.game-overlay img:hover {
+  transform: scale(1.15);
+}

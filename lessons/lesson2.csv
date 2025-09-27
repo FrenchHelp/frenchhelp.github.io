@@ -1,0 +1,12 @@
+type,target,question,answer1,answer2,answer3,answer4,correct answer
+multiple-choice,apple,Translate "Apple" to French,Pomme,Banane,Orange,Raisin,1
+multiple-choice,banana,Translate "Banana" to French,Banane,Pomme,Orange,Raisin,1
+input,I like coffee,Translate "I like coffee" to French,J'aime le café,,,,1
+multiple-choice,bread,Translate "Bread" to French,Pain,Lait,Fromage,Beurre,1
+multiple-choice,cheese,Translate "Cheese" to French,Fromage,Pain,Lait,Beurre,1
+input,I want water,Translate "I want water" to French,Je veux de l'eau,,,,1
+multiple-choice,milk,Translate "Milk" to French,Lait,Eau,Fromage,Pain,1
+multiple-choice,orange,Translate "Orange" to French,Orange,Pomme,Banane,Raisin,1
+input,I like pizza,Translate "I like pizza" to French,J'aime la pizza,,,,1
+multiple-choice,butter,Translate "Butter" to French,Beurre,Lait,Pain,Fromage,1
+multiple-choice,grape,Translate "Grape" to French,Raisin,Pomme,Orange,Banane,1

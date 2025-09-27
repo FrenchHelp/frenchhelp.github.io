@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>French Lesson</title>
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicons/favicon-16x16.png">
+    <link rel="manifest" href="assets/images/favicons/site.webmanifest">
+
+    <style>
+        :root {
+            --bg: #f0fdf4;
+            --card-bg: #ffffff;
+            --text: #111827;
+            --button-bg: #f3f4f6;
+            --button-border: #d1d5db;
+            --button-hover: #e5e7eb;
+            --progress: #22c55e;
+        }
+
+        body.dark {
+            --bg: #1f2937;
+            --card-bg: #374151;
+            --text: #f9fafb;
+            --button-bg: #4b5563;
+            --button-border: #6b7280;
+            --button-hover: #6b7280;
+            --progress: #10b981;
+        }
+
+        body {
+            font-family: "Arial Rounded MT Bold", Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        #top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 90%;
+            max-width: 900px;
+            padding: 15px 0;
+        }
+
+        #exit-btn {
+            background: none;
+            border: none;
+            font-size: 28px;
+            cursor: pointer;
+            color: var(--text);
+        }
+
+        #exit-btn:hover {
+            color: #ef4444;
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 52px;
+            height: 28px;
+        }
+
+        .switch input {
+            display: none;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: 0.3s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 22px;
+            width: 22px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: 0.3s;
+            border-radius: 50%;
+        }
+
+        input:checked+.slider {
+            background-color: #22c55e;
+        }
+
+        input:checked+.slider:before {
+            transform: translateX(24px);
+        }
+
+        #progress-bar {
+            width: 90%;
+            max-width: 900px;
+            height: 14px;
+            background: #e5e7eb;
+            border-radius: 7px;
+            margin: 10px 0 25px;
+            overflow: hidden;
+        }
+
+        #progress-fill {
+            height: 100%;
+            background: var(--progress);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        #lesson-container {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 24px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            width: 90%;
+            text-align: center;
+            margin-bottom: 30px;
+            transition: background 0.3s;
+        }
+
+        .question {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 22px;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-bottom: 24px;
+        }
+
+        .options button {
+            background: var(--button-bg);
+            border: 2px solid var(--button-border);
+            border-radius: 14px;
+            padding: 14px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: var(--text);
+        }
+
+        .options button:hover {
+            background: var(--button-hover);
+        }
+
+        .options button.correct {
+            background: #22c55e;
+            color: white;
+            border-color: #16a34a;
+        }
+
+        .options button.incorrect {
+            background: #ef4444;
+            color: white;
+            border-color: #b91c1c;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 14px;
+            font-size: 18px;
+            border: 2px solid var(--button-border);
+            border-radius: 14px;
+            margin-bottom: 20px;
+            background: var(--button-bg);
+            color: var(--text);
+        }
+
+        #next-btn {
+            background: #3b82f6;
+            border: none;
+            color: white;
+            padding: 14px 24px;
+            font-size: 18px;
+            border-radius: 14px;
+            cursor: pointer;
+            display: none;
+        }
+
+        #next-btn:hover {
+            background: #2563eb;
+        }
+
+        #result {
+            font-size: 22px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        @media(min-width: 1200px) {
+            #lesson-container {
+                padding: 50px;
+            }
+
+            .question {
+                font-size: 28px;
+            }
+
+            .options button {
+                font-size: 20px;
+                padding: 16px;
+            }
+
+            input[type="text"] {
+                font-size: 20px;
+                padding: 16px;
+            }
+
+            #next-btn {
+                font-size: 20px;
+                padding: 16px 28px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="top-bar">
+        <button id="exit-btn">✖</button>
+        <label class="switch">
+            <input type="checkbox" id="dark-toggle">
+            <span class="slider"></span>
+        </label>
+    </div>
+
+    <div id="progress-bar">
+        <div id="progress-fill"></div>
+    </div>
+
+    <div id="lesson-container">Loading lesson...</div>
+    <button id="next-btn">Next</button>
+
+    <script>
+        let questions = [];
+        let currentIndex = 0;
+        let correctCount = 0;
+
+        async function loadLesson() {
+            const hash = window.location.hash.slice(1);
+            if (!hash) {
+                document.getElementById("lesson-container").textContent = "No lesson specified.";
+                return;
+            }
+
+            window.currentLessonID = hash; // save current lesson id for completion tracking
+            const lessonFile = `lessons/${hash}.csv`;
+
+            try {
+                const response = await fetch(lessonFile);
+                if (!response.ok) throw new Error("Lesson file not found");
+                const text = await response.text();
+                const rows = text.trim().split("\n").map(r => r.split(","));
+
+                questions = rows.slice(1).map(row => {
+                    const [type, target, question, a1, a2, a3, a4, correct] = row.map(c => c.trim());
+                    return { type, question, answers: [a1, a2, a3, a4], correct };
+                });
+
+                currentIndex = 0;
+                correctCount = 0;
+                showQuestion();
+            } catch (err) {
+                document.getElementById("lesson-container").textContent = "Error: " + err.message;
+            }
+        }
+
+        function updateProgress() {
+            const progress = ((currentIndex) / questions.length) * 100;
+            document.getElementById("progress-fill").style.width = progress + "%";
+        }
+
+        function showQuestion() {
+            const container = document.getElementById("lesson-container");
+            const q = questions[currentIndex];
+            container.innerHTML = "";
+
+            const qEl = document.createElement("div");
+            qEl.className = "question";
+            qEl.textContent = q.question;
+            container.appendChild(qEl);
+
+            let answered = false;
+            const nextBtn = document.getElementById("next-btn");
+            nextBtn.style.display = "none";
+
+            if (q.type === "multiple-choice") {
+                const optionsDiv = document.createElement("div");
+                optionsDiv.className = "options";
+
+                q.answers.forEach((ans, i) => {
+                    if (!ans) return;
+                    const btn = document.createElement("button");
+                    btn.textContent = ans;
+                    btn.onclick = () => {
+                        if (answered) return;
+                        answered = true;
+                        if (String(i + 1) === q.correct) {
+                            btn.classList.add("correct");
+                            correctCount++;
+                        } else {
+                            btn.classList.add("incorrect");
+                        }
+                        nextBtn.style.display = "inline-block";
+                    };
+                    optionsDiv.appendChild(btn);
+                });
+
+                container.appendChild(optionsDiv);
+
+            } else if (q.type === "input") {
+                const input = document.createElement("input");
+                input.type = "text";
+                container.appendChild(input);
+
+                const checkBtn = document.createElement("button");
+                checkBtn.textContent = "Check Answer";
+                checkBtn.onclick = () => {
+                    if (answered) return;
+                    answered = true;
+                    if (input.value.trim().toLowerCase() === q.answers[0].toLowerCase()) {
+                        input.style.border = "none";
+                        correctCount++;
+                    } else {
+                        input.style.border = "none";
+                    }
+                    nextBtn.style.display = "inline-block";
+                };
+                container.appendChild(checkBtn);
+            }
+
+            updateProgress();
+        }
+
+        document.getElementById("next-btn").addEventListener("click", () => {
+            currentIndex++;
+            if (currentIndex < questions.length) {
+                showQuestion();
+            } else {
+                completeLesson();
+            }
+        });
+
+        function completeLesson() {
+            const container = document.getElementById("lesson-container");
+            container.innerHTML = `
+        <div id="result">
+          🎉 Lesson complete!<br>
+          You got ${correctCount} / ${questions.length} correct.
+        </div>
+      `;
+            document.getElementById("next-btn").style.display = "none";
+            document.getElementById("progress-fill").style.width = "100%";
+
+            // save lesson as completed in localStorage
+            let completed = JSON.parse(localStorage.getItem("french_lesson_complete") || "[]");
+            if (!completed.includes(window.currentLessonID)) {
+                completed.push(window.currentLessonID);
+                localStorage.setItem("french_lesson_complete", JSON.stringify(completed));
+            }
+        }
+
+        document.getElementById("exit-btn").addEventListener("click", () => {
+            window.location.href = "learn.html";
+        });
+
+        const darkToggle = document.getElementById("dark-toggle");
+        darkToggle.addEventListener("change", () => {
+            document.body.classList.toggle("dark", darkToggle.checked);
+        });
+
+        window.addEventListener("hashchange", loadLesson);
+        loadLesson();
+    </script>
+</body>
+
+</html>
